@@ -85,11 +85,25 @@ insert into tbUsuarios(nome,senha,codFunc)values('ana.flores','123456',3);
 insert into tbUsuarios(nome,senha,codFunc)values('matheus.melo','123456',2);
 insert into tbUsuarios(nome,senha,codFunc)values('jurandir.silva','123456',1);
 
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Papel Sulfite','524515','19/11/2030','11:46:00',10,25.35,1);
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('');
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values();
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values();
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Papel Sulfite','524515','25/12/2030','19/11/2030','11:46:00',200,10,25.35,1);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Arroz Tipo 1','2024001','25/12/2030','20/11/2024','08:30:00',100, 5.50, 3);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Feijao Carioca','2024002','25/12/2030','20/11/2024','09:15:00',1000,7.20, 4);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Oleo de Soja 900ml','2024003','25/12/2030','21/11/2024','10:00:00',350,9.80, 3);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Acucar Refinado','2024004','25/12/2030','21/11/2024','11:45:00',600,4.10, 4);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Cafe Torrado e Moido','2024005','25/12/2030','15/11/2024', '07:50:00',750,12.40, 3);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Banana','26262','25/12/2030','21/11/2024','08:00:15',250,12.00,2);
 
+insert into tbVendas(valor,dataVend,horaVend,codUsu,codProd,codCli)values(25.35, '05/10/2024', '12:30:00', 3, 1, 1);
+insert into tbVendas(valor,dataVend,horaVend,codUsu,codProd,codCli)values(5.50, '20/11/2024', '14:15:00', 2, 2, 2);
+insert into tbVendas(valor,dataVend,horaVend,codUsu,codProd,codCli)values(7.20, '19/11/2024', '15:45:00', 1, 3, 3);
+insert into tbVendas(valor,dataVend,horaVend,codUsu,codProd,codCli)values(9.80, '10/11/2024', '16:30:00', 2, 4, 1);
+insert into tbVendas(valor,dataVend,horaVend,codUsu,codProd,codCli)values(9.80, '20/11/2024', '16:30:00', 2, 4, 1);
+
+select * from tbFuncionarios;
+select * from tbClientes;
+select * from tbFornecedores;
+select * from tbUsuarios;
+select * from tbProdutos;
 
 desc tbFuncionarios;
 desc tbUsuarios;
@@ -97,3 +111,18 @@ desc tbClientes;
 desc tbFornecedores;
 desc tbProdutos;
 desc tbVendas;
+
+
+-- inner join
+
+select func.nome as 'Nome do Funcionario',
+usu.nome as 'Nome do Usuario' from tbUsuarios as usu
+inner join   tbFuncionarios as func
+on usu.codFunc = func.codFunc
+where func.codFunc = 2;
+
+select func.nome as 'Nome do Funcionario',
+usu.nome as 'Nome do Usuario' from tbUsuarios as usu
+inner join   tbFuncionarios as func
+on usu.codFunc = func.codFunc
+where func.nome like '%n%';
